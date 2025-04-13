@@ -10,4 +10,4 @@ def transcribe_audio(audio_bytes: bytes) -> str:
     audio.export(wav_io, format="wav")
     wav_io.seek(0)
     result = model.transcribe(wav_io)
-    return result["text"]
+    return result["text"], wav_io.read()
